@@ -1,0 +1,9 @@
+///
+/// @file   - util.def
+/// @author - Harlan Waldrop <waldroha@oregonstate.edu>
+///
+
+#define LOW(word)	((word) & 0xFF)
+#define HIGH(word)	((word) >> 8)
+
+#define ALPHA(n)	((n) + '0')

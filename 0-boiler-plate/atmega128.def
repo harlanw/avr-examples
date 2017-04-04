@@ -1,0 +1,1132 @@
+///
+/// @file - atmega128.def
+/// @author - Harlan J. Waldrop
+/// @description - Register/bit definitions for the ATmega128
+///
+#ifndef _M128DEF_INC_
+#define _M128DEF_INC_
+
+///
+/// Device Signature
+///
+#define SIGNATURE_000	0x1e
+#define SIGNATURE_001	0x97
+#define SIGNATURE_002	0x02
+
+///
+/// I/O Register Definitions -
+///	Definitions marked "MEMORY MAPPED" are extented I/O ports and
+///	cannot be used with IN/OUT instructions.
+///
+#define UCSR1C	0x9d
+#define UDR1	0x9c
+#define UCSR1A	0x9b
+#define UCSR1B	0x9a
+#define UBRR1L	0x99
+#define UBRR1H	0x98
+#define UCSR0C	0x95
+#define UBRR0H	0x90
+#define TCCR3C	0x8c
+#define TCCR3A	0x8b
+#define TCCR3B	0x8a
+#define TCNT3H	0x89
+#define TCNT3L	0x88
+#define OCR3AH	0x87
+#define OCR3AL	0x86
+#define OCR3BH	0x85
+#define OCR3BL	0x84
+#define OCR3CH	0x83
+#define OCR3CL	0x82
+#define ICR3H	0x81
+#define ICR3L	0x80
+#define ETIMSK	0x7d
+#define ETIFR	0x7c
+#define TCCR1C	0x7a
+#define OCR1CH	0x79
+#define OCR1CL	0x78
+#define TWCR	0x74
+#define TWDR	0x73
+#define TWAR	0x72
+#define TWSR	0x71
+#define TWBR	0x70
+#define OSCCAL	0x6f
+#define XMCRA	0x6d
+#define XMCRB	0x6c
+#define EICRA	0x6a
+#define SPMCSR	0x68
+#define PORTG	0x65
+#define DDRG	0x64
+#define PING	0x63
+#define PORTF	0x62
+#define DDRF	0x61
+#define SREG	0x3f
+#define SPH	0x3e
+#define SPL	0x3d
+#define XDIV	0x3c
+#define RAMPZ	0x3b
+#define EICRB	0x3a
+#define EIMSK	0x39
+#define EIFR	0x38
+#define TIMSK	0x37
+#define TIFR	0x36
+#define MCUCR	0x35
+#define MCUCSR	0x34
+#define TCCR0	0x33
+#define TCNT0	0x32
+#define OCR0	0x31
+#define ASSR	0x30
+#define TCCR1A	0x2f
+#define TCCR1B	0x2e
+#define TCNT1H	0x2d
+#define TCNT1L	0x2c
+#define OCR1AH	0x2b
+#define OCR1AL	0x2a
+#define OCR1BH	0x29
+#define OCR1BL	0x28
+#define ICR1H	0x27
+#define ICR1L	0x26
+#define TCCR2	0x25
+#define TCNT2	0x24
+#define OCR2	0x23
+#define OCDR	0x22
+#define WDTCR	0x21
+#define SFIOR	0x20
+#define EEARH	0x1f
+#define EEARL	0x1e
+#define EEDR	0x1d
+#define EECR	0x1c
+#define PORTA	0x1b
+#define DDRA	0x1a
+#define PINA	0x19
+#define PORTB	0x18
+#define DDRB	0x17
+#define PINB	0x16
+#define PORTC	0x15
+#define DDRC	0x14
+#define PINC	0x13
+#define PORTD	0x12
+#define DDRD	0x11
+#define PIND	0x10
+#define SPDR	0x0f
+#define SPSR	0x0e
+#define SPCR	0x0d
+#define UDR0	0x0c
+#define UCSR0A	0x0b
+#define UCSR0B	0x0a
+#define UBRR0L	0x09
+#define ACSR	0x08
+#define ADMUX	0x07
+#define ADCSRA	0x06
+#define ADCH	0x05
+#define ADCL	0x04
+#define PORTE	0x03
+#define DDRE	0x02
+#define PINE	0x01
+#define PINF	0x00
+
+///
+/// Bit Definitions
+///
+
+///
+/// Analog Comparator
+///
+
+/// SFIOR - Special Function I/O Register
+#define ACME	3	// AnalogComparatorMultiplexerEnable
+
+//ACSR-AnalogComparatorControlAndStatusRegister
+#define ACIS0	0	// Analog Comparator Interrupt Mode Select Bit-0
+#define ACIS1	1	// Analog Comparator Interrupt Mode Select Bit-1
+#define ACIC	2	// Analog Comparator InputCaptureEnable
+#define ACIE	3	// Analog Comparator InterruptEnable
+#define ACI	4	// Analog Comparator InterruptFlag
+#define ACO	5	// Analog Compare Output
+#define ACBG	6	// Analog Comparator BandgapSelect
+#define ACD	7	// Analog Comparator Disable
+
+
+//*****AD_CONVERTER*****************
+//ADMUX-TheADCmultiplexerSelectionRegister
+#define MUX0	0	// AnalogChannelandGainSelectionBits
+#define MUX1	1	// AnalogChannelandGainSelectionBits
+#define MUX2	2	// AnalogChannelandGainSelectionBits
+#define MUX3	3	// AnalogChannelandGainSelectionBits
+#define MUX4	4	// AnalogChannelandGainSelectionBits
+#define ADLAR	5	//LeftAdjustResult
+#define REFS0	6	//ReferenceSelectionBit0
+#define REFS1	7	//ReferenceSelectionBit1
+
+//ADCSRA-TheADCControlandStatusregister
+#define ADCSR	ADCSRA	//Forcompatibility
+#define ADPS0	0	//ADCPrescalerSelectBits
+#define ADPS1	1	//ADCPrescalerSelectBits
+#define ADPS2	2	//ADCPrescalerSelectBits
+#define ADIE	3	//ADCInterruptEnable
+#define ADIF	4	//ADCInterruptFlag
+#define ADFR	5	//ADCFreeRunningSelect
+#define ADSC	6	//ADCStartConversion
+#define ADEN	7	//ADCEnable
+
+//ADCH-ADCDataRegisterHighByte
+#define ADCH0	0	//ADCDataRegisterHighByteBit0
+#define ADCH1	1	//ADCDataRegisterHighByteBit1
+#define ADCH2	2	//ADCDataRegisterHighByteBit2
+#define ADCH3	3	//ADCDataRegisterHighByteBit3
+#define ADCH4	4	//ADCDataRegisterHighByteBit4
+#define ADCH5	5	//ADCDataRegisterHighByteBit5
+#define ADCH6	6	//ADCDataRegisterHighByteBit6
+#define ADCH7	7	//ADCDataRegisterHighByteBit7
+
+//ADCL-ADCDataRegisterLowByte
+#define ADCL0	0	//ADCDataRegisterLowByteBit0
+#define ADCL1	1	//ADCDataRegisterLowByteBit1
+#define ADCL2	2	//ADCDataRegisterLowByteBit2
+#define ADCL3	3	//ADCDataRegisterLowByteBit3
+#define ADCL4	4	//ADCDataRegisterLowByteBit4
+#define ADCL5	5	//ADCDataRegisterLowByteBit5
+#define ADCL6	6	//ADCDataRegisterLowByteBit6
+#define ADCL7	7	//ADCDataRegisterLowByteBit7
+
+
+//*****SPI**************************
+//SPDR-SPIDataRegister
+#define SPDR0	0	//SPIDataRegisterbit0
+#define SPDR1	1	//SPIDataRegisterbit1
+#define SPDR2	2	//SPIDataRegisterbit2
+#define SPDR3	3	//SPIDataRegisterbit3
+#define SPDR4	4	//SPIDataRegisterbit4
+#define SPDR5	5	//SPIDataRegisterbit5
+#define SPDR6	6	//SPIDataRegisterbit6
+#define SPDR7	7	//SPIDataRegisterbit7
+
+//SPSR-SPIStatusRegister
+#define SPI2X	0	//DoubleSPISpeedBit
+#define WCOL	6	//WriteCollisionFlag
+#define SPIF	7	//SPIInterruptFlag
+
+//SPCR-SPIControlRegister
+#define SPR0	0	//SPIClockRateSelect0
+#define SPR1	1	//SPIClockRateSelect1
+#define CPHA	2	//ClockPhase
+#define CPOL	3	//Clockpolarity
+#define MSTR	4	//Master/SlaveSelect
+#define DORD	5	//DataOrder
+#define SPE	6	//SPIEnable
+#define SPIE	7	//SPIInterruptEnable
+
+
+//*****TWI**************************
+//TWBR-TWIBitRateregister
+#define I2BR	TWBR	//Forcompatibility
+#define TWBR0	0	//
+#define TWBR1	1	//
+#define TWBR2	2	//
+#define TWBR3	3	//
+#define TWBR4	4	//
+#define TWBR5	5	//
+#define TWBR6	6	//
+#define TWBR7	7	//
+
+//TWCR-TWIControlRegister
+#define I2CR	TWCR	//Forcompatibility
+#define TWIE	0	//TWIInterruptEnable
+#define I2IE	TWIE	//Forcompatibility
+#define TWEN	2	//TWIEnableBit
+#define I2EN	TWEN	//Forcompatibility
+#define ENI2C	TWEN	//Forcompatibility
+#define TWWC	3	//TWIWriteCollitionFlag
+#define I2WC	TWWC	//Forcompatibility
+#define TWSTO	4	//TWIStopConditionBit
+#define I2STO	TWSTO	//Forcompatibility
+#define TWSTA	5	//TWIStartConditionBit
+#define I2STA	TWSTA	//Forcompatibility
+#define TWEA	6	//TWIEnableAcknowledgeBit
+#define I2EA	TWEA	//Forcompatibility
+#define TWINT	7	//TWIInterruptFlag
+#define I2INT	TWINT	//Forcompatibility
+
+//TWSR-TWIStatusRegister
+#define I2SR	TWSR	//Forcompatibility
+#define TWPS0	0	//TWIPrescaler
+#define TWS0	TWPS0	//Forcompatibility
+#define I2GCE	TWPS0	//Forcompatibility
+#define TWPS1	1	//TWIPrescaler
+#define TWS1	TWPS1	//Forcompatibility
+#define TWS3	3	//TWIStatus
+#define I2S3	TWS3	//Forcompatibility
+#define TWS4	4	//TWIStatus
+#define I2S4	TWS4	//Forcompatibility
+#define TWS5	5	//TWIStatus
+#define I2S5	TWS5	//Forcompatibility
+#define TWS6	6	//TWIStatus
+#define I2S6	TWS6	//Forcompatibility
+#define TWS7	7	//TWIStatus
+#define I2S7	TWS7	//Forcompatibility
+
+//TWDR-TWIDataregister
+#define I2DR	TWDR	//Forcompatibility
+#define TWD0	0	//TWIDataRegisterBit0
+#define TWD1	1	//TWIDataRegisterBit1
+#define TWD2	2	//TWIDataRegisterBit2
+#define TWD3	3	//TWIDataRegisterBit3
+#define TWD4	4	//TWIDataRegisterBit4
+#define TWD5	5	//TWIDataRegisterBit5
+#define TWD6	6	//TWIDataRegisterBit6
+#define TWD7	7	//TWIDataRegisterBit7
+
+//TWAR-TWI(Slave)Addressregister
+#define I2AR	TWAR	//Forcompatibility
+#define TWGCE	0	//TWIGeneralCallRecognitionEnableBit
+#define TWA0	1	//TWI(Slave)AddressregisterBit0
+#define TWA1	2	//TWI(Slave)AddressregisterBit1
+#define TWA2	3	//TWI(Slave)AddressregisterBit2
+#define TWA3	4	//TWI(Slave)AddressregisterBit3
+#define TWA4	5	//TWI(Slave)AddressregisterBit4
+#define TWA5	6	//TWI(Slave)AddressregisterBit5
+#define TWA6	7	//TWI(Slave)AddressregisterBit6
+
+
+//*****USART0***********************
+//UDR0-USARTI/ODataRegister
+#define UDR00	0	//USARTI/ODataRegisterbit0
+#define UDR01	1	//USARTI/ODataRegisterbit1
+#define UDR02	2	//USARTI/ODataRegisterbit2
+#define UDR03	3	//USARTI/ODataRegisterbit3
+#define UDR04	4	//USARTI/ODataRegisterbit4
+#define UDR05	5	//USARTI/ODataRegisterbit5
+#define UDR06	6	//USARTI/ODataRegisterbit6
+#define UDR07	7	//USARTI/ODataRegisterbit7
+
+//UCSR0A-USARTControlandStatusRegisterA
+#define MPCM0	0	//Multi-processorCommunicationMode
+#define U2X0	1	//DoubletheUSARTtransmissionspeed
+#define UPE0	2	//ParityError
+#define DOR0	3	//DataoverRun
+#define FE0	4	//FramingError
+#define UDRE0	5	//USARTDataRegisterEmpty
+#define TXC0	6	//USARTTransmittComplete
+#define RXC0	7	//USARTReceiveComplete
+
+//UCSR0B-USARTControlandStatusRegisterB
+#define TXB80	0	//TransmitDataBit8
+#define RXB80	1	//ReceiveDataBit8
+#define UCSZ02	2	//CharacterSize
+#define UCSZ2	UCSZ02	//Forcompatibility
+#define TXEN0	3	//TransmitterEnable
+#define RXEN0	4	//ReceiverEnable
+#define UDRIE0	5	//USARTDataregisterEmptyInterruptEnable
+#define TXCIE0	6	//TXCompleteInterruptEnable
+#define RXCIE0	7	//RXCompleteInterruptEnable
+
+//UCSR0C-USARTControlandStatusRegisterC
+#define UCPOL0	0	//ClockPolarity
+#define UCSZ00	1	//CharacterSize
+#define UCSZ01	2	//CharacterSize
+#define USBS0	3	//StopBitSelect
+#define UPM00	4	//ParityModeBit0
+#define UPM01	5	//ParityModeBit1
+#define UMSEL0	6	//USARTModeSelect
+
+
+//*****USART1***********************
+//UDR1-USARTI/ODataRegister
+#define UDR10	0	//USARTI/ODataRegisterbit0
+#define UDR11	1	//USARTI/ODataRegisterbit1
+#define UDR12	2	//USARTI/ODataRegisterbit2
+#define UDR13	3	//USARTI/ODataRegisterbit3
+#define UDR14	4	//USARTI/ODataRegisterbit4
+#define UDR15	5	//USARTI/ODataRegisterbit5
+#define UDR16	6	//USARTI/ODataRegisterbit6
+#define UDR17	7	//USARTI/ODataRegisterbit7
+
+//UCSR1A-USARTControlandStatusRegisterA
+#define MPCM1	0	//Multi-processorCommunicationMode
+#define U2X1	1	//DoubletheUSARTtransmissionspeed
+#define UPE1	2	//ParityError
+#define DOR1	3	//DataoverRun
+#define FE1	4	//FramingError
+#define UDRE1	5	//USARTDataRegisterEmpty
+#define TXC1	6	//USARTTransmittComplete
+#define RXC1	7	//USARTReceiveComplete
+
+//UCSR1B-USARTControlandStatusRegisterB
+#define TXB81	0	//TransmitDataBit8
+#define RXB81	1	//ReceiveDataBit8
+#define UCSZ12	2	//CharacterSize
+#define TXEN1	3	//TransmitterEnable
+#define RXEN1	4	//ReceiverEnable
+#define UDRIE1	5	//USARTDataregisterEmptyInterruptEnable
+#define TXCIE1	6	//TXCompleteInterruptEnable
+#define RXCIE1	7	//RXCompleteInterruptEnable
+
+//UCSR1C-USARTControlandStatusRegisterC
+#define UCPOL1	0	//ClockPolarity
+#define UCSZ10	1	//CharacterSize
+#define UCSZ11	2	//CharacterSize
+#define USBS1	3	//StopBitSelect
+#define UPM10	4	//ParityModeBit0
+#define UPM11	5	//ParityModeBit1
+#define UMSEL1	6	//USARTModeSelect
+
+
+//*****CPU**************************
+//SREG-StatusRegister
+#define SREG_C	0	//CarryFlag
+#define SREG_Z	1	//ZeroFlag
+#define SREG_N	2	//NegativeFlag
+#define SREG_V	3	//TwosComplementOverflowFlag
+#define SREG_S	4	//SignBit
+#define SREG_H	5	//HalfCarryFlag
+#define SREG_T	6	//BitCopyStorage
+#define SREG_I	7	//GlobalInterruptEnable
+
+//MCUCR-MCUControlRegister
+#define IVCE	0	//InterruptVectorChangeEnable
+#define IVSEL	1	//InterruptVectorSelect
+#define SM2	2	//SleepModeSelect
+#define SM0	3	//SleepModeSelect
+#define SM1	4	//SleepModeSelect
+#define SE	5	//SleepEnable
+#define SRW10	6	//ExternalSRAMWaitStateSelect
+#define SRE	7	//ExternalSRAMEnable
+
+//XMCRA-ExternalMemoryControlRegisterA
+#define SRW11	1	//Waitstateselectbitupperpage
+#define SRW00	2	//Waitstateselectbitlowerpage
+#define SRW01	3	//Waitstateselectbitlowerpage
+#define SRL0	4	//Waitstatepagelimit
+#define SRL1	5	//Waitstatepagelimit
+#define SRL2	6	//Waitstatepagelimit
+
+//XMCRB-ExternalMemoryControlRegisterB
+#define XMM0	0	//ExternalMemoryHighMask
+#define XMM1	1	//ExternalMemoryHighMask
+#define XMM2	2	//ExternalMemoryHighMask
+#define XMBK	7	//ExternalMemoryBusKeeperEnable
+
+//OSCCAL-OscillatorCalibrationValue
+#define CAL0	0	//OscillatorCalibrationValue
+#define CAL1	1	//OscillatorCalibrationValue
+#define CAL2	2	//OscillatorCalibrationValue
+#define CAL3	3	//OscillatorCalibrationValue
+#define CAL4	4	//OscillatorCalibrationValue
+#define CAL5	5	//OscillatorCalibrationValue
+#define CAL6	6	//OscillatorCalibrationValue
+#define CAL7	7	//OscillatorCalibrationValue
+
+//XDIV-XTALDivideControlRegister
+#define XDIV0	0	//XTAlDivideSelectBit0
+#define XDIV1	1	//XTAlDivideSelectBit1
+#define XDIV2	2	//XTAlDivideSelectBit2
+#define XDIV3	3	//XTAlDivideSelectBit3
+#define XDIV4	4	//XTAlDivideSelectBit4
+#define XDIV5	5	//XTAlDivideSelectBit5
+#define XDIV6	6	//XTAlDivideSelectBit6
+#define XDIVEN	7	//XTALDivideEnable
+
+//MCUCSR-MCUControlAndStatusRegister
+#define PORF	0	//Power-onresetflag
+#define EXTRF	1	//ExternalResetFlag
+#define BORF	2	//Brown-outResetFlag
+#define WDRF	3	//WatchdogResetFlag
+#define JTRF	4	//JTAGResetFlag
+#define JTD	7	//JTAGInterfaceDisable
+
+//RAMPZ-RAMPageZSelectRegister
+#define RAMPZ0	0	//RAMPageZSelectRegisterBit0
+
+
+//*****BOOT_LOAD********************
+//SPMCSR-StoreProgramMemoryControlRegister
+#define SPMCR	SPMCSR	//Forcompatibility
+#define SPMEN	0	//StoreProgramMemoryEnable
+#define PGERS	1	//PageErase
+#define PGWRT	2	//PageWrite
+#define BLBSET	3	//BootLockBitSet
+#define RWWSRE	4	//ReadWhileWritesectionreadenable
+#define ASRE	RWWSRE	//Forcompatibility
+#define RWWSB	6	//ReadWhileWriteSectionBusy
+#define ASB	RWWSB	//Forcompatibility
+#define SPMIE	7	//SPMInterruptEnable
+
+
+//*****JTAG*************************
+//OCDR-On-ChipDebugRelatedRegisterinI/OMemory
+#define OCDR0	0	//On-ChipDebugRegisterBit0
+#define OCDR1	1	//On-ChipDebugRegisterBit1
+#define OCDR2	2	//On-ChipDebugRegisterBit2
+#define OCDR3	3	//On-ChipDebugRegisterBit3
+#define OCDR4	4	//On-ChipDebugRegisterBit4
+#define OCDR5	5	//On-ChipDebugRegisterBit5
+#define OCDR6	6	//On-ChipDebugRegisterBit6
+#define OCDR7	7	//On-ChipDebugRegisterBit7
+#define IDRD	OCDR7	//Forcompatibility
+
+//MCUCSR-MCUControlAndStatusRegister
+//#define JTRF	4	//JTAGResetFlag
+//#define JTD	7	//JTAGInterfaceDisable
+
+
+//*****MISC*************************
+//SFIOR-SpecialFunctionIORegister
+#define PSR321	0	//PrescalerResetTimer/Counter3,Timer/Counter2,andTimer/Counter1
+#define PSR1	PSR321	//Forcompatibility
+#define PSR2	PSR321	//Forcompatibility
+#define PSR3	PSR321	//Forcompatibility
+#define PSR0	1	//PrescalerResetTimer/Counter0
+#define PUD	2	//PullUpDisable
+//#define ACME	3	// AnalogComparatorMultiplexerEnable
+#define TSM	7	//Timer/CounterSynchronizationMode
+
+
+//*****EXTERNAL_INTERRUPT***********
+//EICRA-ExternalInterruptControlRegisterA
+#define ISC00	0	//ExternalInterruptSenseControlBit
+#define ISC01	1	//ExternalInterruptSenseControlBit
+#define ISC10	2	//ExternalInterruptSenseControlBit
+#define ISC11	3	//ExternalInterruptSenseControlBit
+#define ISC20	4	//ExternalInterruptSenseControlBit
+#define ISC21	5	//ExternalInterruptSenseControlBit
+#define ISC30	6	//ExternalInterruptSenseControlBit
+#define ISC31	7	//ExternalInterruptSenseControlBit
+
+//EICRB-ExternalInterruptControlRegisterB
+#define ISC40	0	//ExternalInterrupt7-4SenseControlBit
+#define ISC41	1	//ExternalInterrupt7-4SenseControlBit
+#define ISC50	2	//ExternalInterrupt7-4SenseControlBit
+#define ISC51	3	//ExternalInterrupt7-4SenseControlBit
+#define ISC60	4	//ExternalInterrupt7-4SenseControlBit
+#define ISC61	5	//ExternalInterrupt7-4SenseControlBit
+#define ISC70	6	//ExternalInterrupt7-4SenseControlBit
+#define ISC71	7	//ExternalInterrupt7-4SenseControlBit
+
+//EIMSK-ExternalInterruptMaskRegister
+#define GICR	EIMSK	//Forcompatibility
+#define GIMSK	EIMSK	//Forcompatibility
+#define INT0	0	//ExternalInterrupt#defineest0Enable
+#define INT1	1	//ExternalInterrupt#defineest1Enable
+#define INT2	2	//ExternalInterrupt#defineest2Enable
+#define INT3	3	//ExternalInterrupt#defineest3Enable
+#define INT4	4	//ExternalInterrupt#defineest4Enable
+#define INT5	5	//ExternalInterrupt#defineest5Enable
+#define INT6	6	//ExternalInterrupt#defineest6Enable
+#define INT7	7	//ExternalInterrupt#defineest7Enable
+
+//EIFR-ExternalInterruptFlagRegister
+#define GIFR	EIFR	//Forcompatibility
+#define INTF0	0	//ExternalInterruptFlag0
+#define INTF1	1	//ExternalInterruptFlag1
+#define INTF2	2	//ExternalInterruptFlag2
+#define INTF3	3	//ExternalInterruptFlag3
+#define INTF4	4	//ExternalInterruptFlag4
+#define INTF5	5	//ExternalInterruptFlag5
+#define INTF6	6	//ExternalInterruptFlag6
+#define INTF7	7	//ExternalInterruptFlag7
+
+
+//*****EEPROM***********************
+//EEDR-EEPROMDataRegister
+#define EEDR0	0	//EEPROMDataRegisterbit0
+#define EEDR1	1	//EEPROMDataRegisterbit1
+#define EEDR2	2	//EEPROMDataRegisterbit2
+#define EEDR3	3	//EEPROMDataRegisterbit3
+#define EEDR4	4	//EEPROMDataRegisterbit4
+#define EEDR5	5	//EEPROMDataRegisterbit5
+#define EEDR6	6	//EEPROMDataRegisterbit6
+#define EEDR7	7	//EEPROMDataRegisterbit7
+
+//EECR-EEPROMControlRegister
+#define EERE	0	//EEPROMReadEnable
+#define EEWE	1	//EEPROMWriteEnable
+#define EEMWE	2	//EEPROMMasterWriteEnable
+#define EERIE	3	//EEPROMReadyInterruptEnable
+
+
+//*****PORTA************************
+//PORTA-PortADataRegister
+#define PORTA0	0	//PortADataRegisterbit0
+#define PA0	0	//Forcompatibility
+#define PORTA1	1	//PortADataRegisterbit1
+#define PA1	1	//Forcompatibility
+#define PORTA2	2	//PortADataRegisterbit2
+#define PA2	2	//Forcompatibility
+#define PORTA3	3	//PortADataRegisterbit3
+#define PA3	3	//Forcompatibility
+#define PORTA4	4	//PortADataRegisterbit4
+#define PA4	4	//Forcompatibility
+#define PORTA5	5	//PortADataRegisterbit5
+#define PA5	5	//Forcompatibility
+#define PORTA6	6	//PortADataRegisterbit6
+#define PA6	6	//Forcompatibility
+#define PORTA7	7	//PortADataRegisterbit7
+#define PA7	7	//Forcompatibility
+
+//DDRA-PortADataDirectionRegister
+#define DDA0	0	//DataDirectionRegister,PortA,bit0
+#define DDA1	1	//DataDirectionRegister,PortA,bit1
+#define DDA2	2	//DataDirectionRegister,PortA,bit2
+#define DDA3	3	//DataDirectionRegister,PortA,bit3
+#define DDA4	4	//DataDirectionRegister,PortA,bit4
+#define DDA5	5	//DataDirectionRegister,PortA,bit5
+#define DDA6	6	//DataDirectionRegister,PortA,bit6
+#define DDA7	7	//DataDirectionRegister,PortA,bit7
+
+//PINA-PortAInputPins
+#define PINA0	0	//InputPins,PortAbit0
+#define PINA1	1	//InputPins,PortAbit1
+#define PINA2	2	//InputPins,PortAbit2
+#define PINA3	3	//InputPins,PortAbit3
+#define PINA4	4	//InputPins,PortAbit4
+#define PINA5	5	//InputPins,PortAbit5
+#define PINA6	6	//InputPins,PortAbit6
+#define PINA7	7	//InputPins,PortAbit7
+
+
+//*****PORTB************************
+//PORTB-PortBDataRegister
+#define PORTB0	0	//PortBDataRegisterbit0
+#define PB0	0	//Forcompatibility
+#define PORTB1	1	//PortBDataRegisterbit1
+#define PB1	1	//Forcompatibility
+#define PORTB2	2	//PortBDataRegisterbit2
+#define PB2	2	//Forcompatibility
+#define PORTB3	3	//PortBDataRegisterbit3
+#define PB3	3	//Forcompatibility
+#define PORTB4	4	//PortBDataRegisterbit4
+#define PB4	4	//Forcompatibility
+#define PORTB5	5	//PortBDataRegisterbit5
+#define PB5	5	//Forcompatibility
+#define PORTB6	6	//PortBDataRegisterbit6
+#define PB6	6	//Forcompatibility
+#define PORTB7	7	//PortBDataRegisterbit7
+#define PB7	7	//Forcompatibility
+
+//DDRB-PortBDataDirectionRegister
+#define DDB0	0	//PortBDataDirectionRegisterbit0
+#define DDB1	1	//PortBDataDirectionRegisterbit1
+#define DDB2	2	//PortBDataDirectionRegisterbit2
+#define DDB3	3	//PortBDataDirectionRegisterbit3
+#define DDB4	4	//PortBDataDirectionRegisterbit4
+#define DDB5	5	//PortBDataDirectionRegisterbit5
+#define DDB6	6	//PortBDataDirectionRegisterbit6
+#define DDB7	7	//PortBDataDirectionRegisterbit7
+
+//PINB-PortBInputPins
+#define PINB0	0	//PortBInputPinsbit0
+#define PINB1	1	//PortBInputPinsbit1
+#define PINB2	2	//PortBInputPinsbit2
+#define PINB3	3	//PortBInputPinsbit3
+#define PINB4	4	//PortBInputPinsbit4
+#define PINB5	5	//PortBInputPinsbit5
+#define PINB6	6	//PortBInputPinsbit6
+#define PINB7	7	//PortBInputPinsbit7
+
+
+//*****PORTC************************
+//PORTC-PortCDataRegister
+#define PORTC0	0	//PortCDataRegisterbit0
+#define PC0	0	//Forcompatibility
+#define PORTC1	1	//PortCDataRegisterbit1
+#define PC1	1	//Forcompatibility
+#define PORTC2	2	//PortCDataRegisterbit2
+#define PC2	2	//Forcompatibility
+#define PORTC3	3	//PortCDataRegisterbit3
+#define PC3	3	//Forcompatibility
+#define PORTC4	4	//PortCDataRegisterbit4
+#define PC4	4	//Forcompatibility
+#define PORTC5	5	//PortCDataRegisterbit5
+#define PC5	5	//Forcompatibility
+#define PORTC6	6	//PortCDataRegisterbit6
+#define PC6	6	//Forcompatibility
+#define PORTC7	7	//PortCDataRegisterbit7
+#define PC7	7	//Forcompatibility
+
+//DDRC-PortCDataDirectionRegister
+#define DDC0	0	//PortCDataDirectionRegisterbit0
+#define DDC1	1	//PortCDataDirectionRegisterbit1
+#define DDC2	2	//PortCDataDirectionRegisterbit2
+#define DDC3	3	//PortCDataDirectionRegisterbit3
+#define DDC4	4	//PortCDataDirectionRegisterbit4
+#define DDC5	5	//PortCDataDirectionRegisterbit5
+#define DDC6	6	//PortCDataDirectionRegisterbit6
+#define DDC7	7	//PortCDataDirectionRegisterbit7
+
+//PINC-PortCInputPins
+#define PINC0	0	//PortCInputPinsbit0
+#define PINC1	1	//PortCInputPinsbit1
+#define PINC2	2	//PortCInputPinsbit2
+#define PINC3	3	//PortCInputPinsbit3
+#define PINC4	4	//PortCInputPinsbit4
+#define PINC5	5	//PortCInputPinsbit5
+#define PINC6	6	//PortCInputPinsbit6
+#define PINC7	7	//PortCInputPinsbit7
+
+
+//*****PORTD************************
+//PORTD-PortDDataRegister
+#define PORTD0	0	//PortDDataRegisterbit0
+#define PD0	0	//Forcompatibility
+#define PORTD1	1	//PortDDataRegisterbit1
+#define PD1	1	//Forcompatibility
+#define PORTD2	2	//PortDDataRegisterbit2
+#define PD2	2	//Forcompatibility
+#define PORTD3	3	//PortDDataRegisterbit3
+#define PD3	3	//Forcompatibility
+#define PORTD4	4	//PortDDataRegisterbit4
+#define PD4	4	//Forcompatibility
+#define PORTD5	5	//PortDDataRegisterbit5
+#define PD5	5	//Forcompatibility
+#define PORTD6	6	//PortDDataRegisterbit6
+#define PD6	6	//Forcompatibility
+#define PORTD7	7	//PortDDataRegisterbit7
+#define PD7	7	//Forcompatibility
+
+//DDRD-PortDDataDirectionRegister
+#define DDD0	0	//PortDDataDirectionRegisterbit0
+#define DDD1	1	//PortDDataDirectionRegisterbit1
+#define DDD2	2	//PortDDataDirectionRegisterbit2
+#define DDD3	3	//PortDDataDirectionRegisterbit3
+#define DDD4	4	//PortDDataDirectionRegisterbit4
+#define DDD5	5	//PortDDataDirectionRegisterbit5
+#define DDD6	6	//PortDDataDirectionRegisterbit6
+#define DDD7	7	//PortDDataDirectionRegisterbit7
+
+//PIND-PortDInputPins
+#define PIND0	0	//PortDInputPinsbit0
+#define PIND1	1	//PortDInputPinsbit1
+#define PIND2	2	//PortDInputPinsbit2
+#define PIND3	3	//PortDInputPinsbit3
+#define PIND4	4	//PortDInputPinsbit4
+#define PIND5	5	//PortDInputPinsbit5
+#define PIND6	6	//PortDInputPinsbit6
+#define PIND7	7	//PortDInputPinsbit7
+
+
+//*****PORTE************************
+//PORTE-DataRegister,PortE
+#define PORTE0	0	//
+#define PE0	0	//Forcompatibility
+#define PORTE1	1	//
+#define PE1	1	//Forcompatibility
+#define PORTE2	2	//
+#define PE2	2	//Forcompatibility
+#define PORTE3	3	//
+#define PE3	3	//Forcompatibility
+#define PORTE4	4	//
+#define PE4	4	//Forcompatibility
+#define PORTE5	5	//
+#define PE5	5	//Forcompatibility
+#define PORTE6	6	//
+#define PE6	6	//Forcompatibility
+#define PORTE7	7	//
+#define PE7	7	//Forcompatibility
+
+//DDRE-DataDirectionRegister,PortE
+#define DDE0	0	//
+#define DDE1	1	//
+#define DDE2	2	//
+#define DDE3	3	//
+#define DDE4	4	//
+#define DDE5	5	//
+#define DDE6	6	//
+#define DDE7	7	//
+
+//PINE-InputPins,PortE
+#define PINE0	0	//
+#define PINE1	1	//
+#define PINE2	2	//
+#define PINE3	3	//
+#define PINE4	4	//
+#define PINE5	5	//
+#define PINE6	6	//
+#define PINE7	7	//
+
+
+//*****PORTF************************
+//PORTF-DataRegister,PortF
+#define PORTF0	0	//
+#define PF0	0	//Forcompatibility
+#define PORTF1	1	//
+#define PF1	1	//Forcompatibility
+#define PORTF2	2	//
+#define PF2	2	//Forcompatibility
+#define PORTF3	3	//
+#define PF3	3	//Forcompatibility
+#define PORTF4	4	//
+#define PF4	4	//Forcompatibility
+#define PORTF5	5	//
+#define PF5	5	//Forcompatibility
+#define PORTF6	6	//
+#define PF6	6	//Forcompatibility
+#define PORTF7	7	//
+#define PF7	7	//Forcompatibility
+
+//DDRF-DataDirectionRegister,PortF
+#define DDF0	0	//
+#define DDF1	1	//
+#define DDF2	2	//
+#define DDF3	3	//
+#define DDF4	4	//
+#define DDF5	5	//
+#define DDF6	6	//
+#define DDF7	7	//
+
+//PINF-InputPins,PortF
+#define PINF0	0	//
+#define PINF1	1	//
+#define PINF2	2	//
+#define PINF3	3	//
+#define PINF4	4	//
+#define PINF5	5	//
+#define PINF6	6	//
+#define PINF7	7	//
+
+
+//*****PORTG************************
+//PORTG-DataRegister,PortG
+#define PORTG0	0	//
+#define PG0	0	//Forcompatibility
+#define PORTG1	1	//
+#define PG1	1	//Forcompatibility
+#define PORTG2	2	//
+#define PG2	2	//Forcompatibility
+#define PORTG3	3	//
+#define PG3	3	//Forcompatibility
+#define PORTG4	4	//
+#define PG4	4	//Forcompatibility
+
+//DDRG-DataDirectionRegister,PortG
+#define DDG0	0	//
+#define DDG1	1	//
+#define DDG2	2	//
+#define DDG3	3	//
+#define DDG4	4	//
+
+//PING-InputPins,PortG
+#define PING0	0	//
+#define PING1	1	//
+#define PING2	2	//
+#define PING3	3	//
+#define PING4	4	//
+
+
+//*****TIMER_COUNTER_0**************
+//TCCR0-Timer/CounterControlRegister
+#define CS00	0	//ClockSelect0
+#define CS01	1	//ClockSelect1
+#define CS02	2	//ClockSelect2
+#define WGM01	3	//WaveformGenerationMode1
+#define CTC0	WGM01	//Forcompatibility
+#define COM00	4	//ComparematchOutputMode0
+#define COM01	5	//CompareMatchOutputMode1
+#define WGM00	6	//WaveformGenerationMode0
+#define PWM0	WGM00	//Forcompatibility
+#define FOC0	7	//ForceOutputCompare
+
+//TCNT0-Timer/CounterRegister
+#define TCNT0_0	0	//
+#define TCNT0_1	1	//
+#define TCNT0_2	2	//
+#define TCNT0_3	3	//
+#define TCNT0_4	4	//
+#define TCNT0_5	5	//
+#define TCNT0_6	6	//
+#define TCNT0_7	7	//
+
+//OCR0-OutputCompareRegister
+#define OCR0_0	0	//
+#define OCR0_1	1	//
+#define OCR0_2	2	//
+#define OCR0_3	3	//
+#define OCR0_4	4	//
+#define OCR0_5	5	//
+#define OCR0_6	6	//
+#define OCR0_7	7	//
+
+//ASSR-AsynchronusStatusRegister
+#define TCR0UB	0	//Timer/CounterControlRegister0UpdateBusy
+#define OCR0UB	1	//OutputCompareregister0Busy
+#define TCN0UB	2	//Timer/Counter0UpdateBusy
+#define AS0	3	//AsynchronusTimer/Counter0
+
+//TIMSK-Timer/CounterInterruptMaskRegister
+#define TOIE0	0	//Timer/Counter0OverflowInterruptEnable
+#define OCIE0	1	//Timer/Counter0OutputCompareMatchInterruptregister
+
+//TIFR-Timer/CounterInterruptFlagregister
+#define TOV0	0	//Timer/Counter0OverflowFlag
+#define OCF0	1	//OutputCompareFlag0
+
+//SFIOR-SpecialFunctionIORegister
+//#define PSR0	1	//PrescalerResetTimer/Counter0
+//#define TSM	7	//Timer/CounterSynchronizationMode
+
+
+//*****TIMER_COUNTER_1**************
+//TIMSK-Timer/CounterInterruptMaskRegister
+#define TOIE1	2	//Timer/Counter1OverflowInterruptEnable
+#define OCIE1B	3	//Timer/Counter1OutputCompareBMatchInterruptEnable
+#define OCIE1A	4	//Timer/Counter1OutputCompareAMatchInterruptEnable
+#define TICIE1	5	//Timer/Counter1InputCaptureInterruptEnable
+
+//ETIMSK-ExtendedTimer/CounterInterruptMaskRegister
+#define OCIE1C	0	//Timer/Counter1,OutputCompareMatchCInterruptEnable
+
+//TIFR-Timer/CounterInterruptFlagregister
+#define TOV1	2	//Timer/Counter1OverflowFlag
+#define OCF1B	3	//OutputCompareFlag1B
+#define OCF1A	4	//OutputCompareFlag1A
+#define ICF1	5	//InputCaptureFlag1
+
+//ETIFR-ExtendedTimer/CounterInterruptFlagregister
+#define OCF1C	0	//Timer/Counter1,OutputCompareCMatchFlag
+
+//SFIOR-SpecialFunctionIORegister
+//#define PSR321	0	//PrescalerReset,T/C3,T/C2,T/C1
+//#define TSM	7	//Timer/CounterSynchronizationMode
+
+//TCCR1A-Timer/Counter1ControlRegisterA
+#define WGM10	0	//WaveformGenerationModeBit0
+#define PWM10	WGM10	//Forcompatibility
+#define WGM11	1	//WaveformGenerationModeBit1
+#define PWM11	WGM11	//Forcompatibility
+#define COM1C0	2	//CompareOutputMode1C,bit0
+#define COM1C1	3	//CompareOutputMode1C,bit1
+#define COM1B0	4	//CompareOutputMode1B,bit0
+#define COM1B1	5	//CompareOutputMode1B,bit1
+#define COM1A0	6	//CompareOuputMode1A,bit0
+#define COM1A1	7	//CompareOutputMode1A,bit1
+
+//TCCR1B-Timer/Counter1ControlRegisterB
+#define CS10	0	//ClockSelectbit0
+#define CS11	1	//ClockSelect1bit1
+#define CS12	2	//ClockSelect1bit2
+#define WGM12	3	//WaveformGenerationMode
+#define CTC10	WGM12	//Forcompatibility
+#define WGM13	4	//WaveformGenerationMode
+#define CTC11	WGM13	//Forcompatibility
+#define ICES1	6	//InputCapture1EdgeSelect
+#define ICNC1	7	//InputCapture1NoiseCanceler
+
+//TCCR1C-Timer/Counter1ControlRegisterC
+#define FOC1C	5	//ForceOutputCompareforchannelC
+#define FOC1B	6	//ForceOutputCompareforchannelB
+#define FOC1A	7	//ForceOutputCompareforchannelA
+
+
+//*****TIMER_COUNTER_2**************
+//TCCR2-Timer/CounterControlRegister
+#define CS20	0	//ClockSelect
+#define CS21	1	//ClockSelect
+#define CS22	2	//ClockSelect
+#define WGM21	3	//WaveformGenerationMode
+#define CTC2	WGM21	//Forcompatibility
+#define COM20	4	//CompareMatchOutputMode
+#define COM21	5	//CompareMatchOutputMode
+#define WGM20	6	//WafeformGenerationMode
+#define PWM2	WGM20	//Forcompatibility
+#define FOC2	7	//ForceOutputCompare
+
+//TCNT2-Timer/CounterRegister
+#define TCNT2_0	0	//Timer/CounterRegisterBit0
+#define TCNT2_1	1	//Timer/CounterRegisterBit1
+#define TCNT2_2	2	//Timer/CounterRegisterBit2
+#define TCNT2_3	3	//Timer/CounterRegisterBit3
+#define TCNT2_4	4	//Timer/CounterRegisterBit4
+#define TCNT2_5	5	//Timer/CounterRegisterBit5
+#define TCNT2_6	6	//Timer/CounterRegisterBit6
+#define TCNT2_7	7	//Timer/CounterRegisterBit7
+
+//OCR2-OutputCompareRegister
+#define OCR2_0	0	//OutputCompareRegisterBit0
+#define OCR2_1	1	//OutputCompareRegisterBit1
+#define OCR2_2	2	//OutputCompareRegisterBit2
+#define OCR2_3	3	//OutputCompareRegisterBit3
+#define OCR2_4	4	//OutputCompareRegisterBit4
+#define OCR2_5	5	//OutputCompareRegisterBit5
+#define OCR2_6	6	//OutputCompareRegisterBit6
+#define OCR2_7	7	//OutputCompareRegisterBit7
+
+//TIMSK-
+#define TOIE2	6	//
+#define OCIE2	7	//
+
+//TIFR-Timer/CounterInterruptFlagRegister
+#define TOV2	6	//Timer/Counter2OverflowFlag
+#define OCF2	7	//OutputCompareFlag2
+
+
+//*****TIMER_COUNTER_3**************
+//ETIMSK-ExtendedTimer/CounterInterruptMaskRegister
+#define OCIE3C	1	//Timer/Counter3,OutputCompareMatchInterruptEnable
+#define TOIE3	2	//Timer/Counter3OverflowInterruptEnable
+#define OCIE3B	3	//Timer/Counter3OutputCompareBMatchInterruptEnable
+#define OCIE3A	4	//Timer/Counter3OutputCompareAMatchInterruptEnable
+#define TICIE3	5	//Timer/Counter3InputCaptureInterruptEnable
+
+//ETIFR-ExtendedTimer/CounterInterruptFlagregister
+#define OCF3C	1	//Timer/Counter3OutputCompareCMatchFlag
+#define TOV3	2	//Timer/Counter3OverflowFlag
+#define OCF3B	3	//OutputCompareFlag1B
+#define OCF3A	4	//OutputCompareFlag1A
+#define ICF3	5	//InputCaptureFlag1
+
+//SFIOR-SpecialFunctionIORegister
+//#define PSR321	0	//PrescalerReset,T/C3,T/C2,T/C1
+//#define PSR1	PSR321	//Forcompatibility
+//#define PSR2	PSR321	//Forcompatibility
+//#define TSM	7	//Timer/CounterSynchronizationMode
+
+//TCCR3A-Timer/Counter3ControlRegisterA
+#define WGM30	0	//WaveformGenerationModeBit0
+#define PWM30	WGM30	//Forcompatibility
+#define WGM31	1	//WaveformGenerationModeBit1
+#define PWM31	WGM31	//Forcompatibility
+#define COM3C0	2	//CompareOutputMode3C,bit0
+#define COM3C1	3	//CompareOutputMode3C,bit1
+#define COM3B0	4	//CompareOutputMode3B,bit0
+#define COM3B1	5	//CompareOutputMode3B,bit1
+#define COM3A0	6	//ComparetOuputMode3A,bit0
+#define COM3A1	7	//CompareOutputMode3A,bit1
+
+//TCCR3B-Timer/Counter3ControlRegisterB
+#define CS30	0	//ClockSelect3bit0
+#define CS31	1	//ClockSelect3bit1
+#define CS32	2	//ClockSelect3bit2
+#define WGM32	3	//WaveformGenerationMode
+#define CTC30	WGM32	//Forcompatibility
+#define WGM33	4	//WaveformGenerationMode
+#define CTC31	WGM33	//Forcompatibility
+#define ICES3	6	//InputCapture3EdgeSelect
+#define ICNC3	7	//InputCapture3NoiseCanceler
+
+//TCCR3C-Timer/Counter3ControlRegisterC
+#define FOC3C	5	//ForceOutputCompareforchannelC
+#define FOC3B	6	//ForceOutputCompareforchannelB
+#define FOC3A	7	//ForceOutputCompareforchannelA
+
+
+//*****WATCHDOG*********************
+//WDTCR-WatchdogTimerControlRegister
+#define WDTCSR	WDTCR	//Forcompatibility
+#define WDP0	0	//WatchDogTimerPrescalerbit0
+#define WDP1	1	//WatchDogTimerPrescalerbit1
+#define WDP2	2	//WatchDogTimerPrescalerbit2
+#define WDE	3	//WatchDogEnable
+#define WDCE	4	//WatchdogChangeEnable
+#define WDTOE	WDCE	//Forcompatibility
+
+
+
+//*****LOCKSBITS********************************************************
+#define LB1	0	//Lockbit
+#define LB2	1	//Lockbit
+#define BLB01	2	//BootLockbit
+#define BLB02	3	//BootLockbit
+#define BLB11	4	//Bootlockbit
+#define BLB12	5	//Bootlockbit
+
+
+//*****FUSES************************************************************
+//LOWfusebits
+#define CKSEL0	0	//SelectClockSource
+#define CKSEL1	1	//SelectClockSource
+#define CKSEL2	2	//SelectClockSource
+#define CKSEL3	3	//SelectClockSource
+#define SUT0	4	//Selectstart-uptime
+#define SUT1	5	//Selectstart-uptime
+#define BODEN	6	//Brownoutdetectorenable
+#define BODLEVEL	7	//Brownoutdetectortriggerlevel
+
+//HIGHfusebits
+#define BOOTRST	0	//SelectResetVector
+#define BOOTSZ0	1	//SelectBootSize
+#define BOOTSZ1	2	//SelectBootSize
+#define EESAVE	3	//EEPROMmemoryispreservedthroughchiperase
+#define CKOPT	4	//OscillatorOptions
+#define SPIEN	5	//EnableSerialprogrammingandDataDownloading
+#define JTAGEN	6	//EnableJTAG
+#define OCDEN	7	//EnableOCD
+
+//EXTENDEDfusebits
+#define WDTON	0	//Watchdogtimeralwayson
+#define M103C	1	//ATmega103compatibilitymode
+
+
+
+//*****CPUREGISTERDEFINITIONS*****************************************
+#define XH	r27
+#define XL	r26
+#define YH	r29
+#define YL	r28
+#define ZH	r31
+#define ZL	r30
+
+
+
+//*****DATAMEMORYDECLARATIONS*****************************************
+#define FLASHEND	0xffff	//Note:Wordaddress
+#define IOEND		0x00ff
+#define SRAM_START	0x0100
+#define SRAM_SIZE	4096
+#define RAMEND		0x10ff
+#define XRAMEND		0xffff
+#define E2END		0x0fff
+#define EEPROMEND	0x0fff
+#define EEADRBITS	12
+
+//*****BOOTLOADERDECLARATIONS******************************************
+#define NRWW_START_ADDR	0xf000
+#define NRWW_STOP_ADDR	0xffff
+#define RWW_START_ADDR	0x0
+#define RWW_STOP_ADDR	0xefff
+#define PAGESIZE	128
+#define FIRSTBOOTSTART	0xfe00
+#define SECONDBOOTSTART	0xfc00
+#define THIRDBOOTSTART	0xf800
+#define FOURTHBOOTSTART	0xf000
+#define SMALLBOOTSTART	FIRSTBOOTSTART
+#define LARGEBOOTSTART	FOURTHBOOTSTART
+
+
+
+//*****INTERRUPTVECTORS************************************************
+#define INT0addr	0x0002	//ExternalInterrupt#defineest0
+#define INT1addr	0x0004	//ExternalInterrupt#defineest1
+#define INT2addr	0x0006	//ExternalInterrupt#defineest2
+#define INT3addr	0x0008	//ExternalInterrupt#defineest3
+#define INT4addr	0x000a	//ExternalInterrupt#defineest4
+#define INT5addr	0x000c	//ExternalInterrupt#defineest5
+#define INT6addr	0x000e	//ExternalInterrupt#defineest6
+#define INT7addr	0x0010	//ExternalInterrupt#defineest7
+#define OC2addr		0x0012	//Timer/Counter2CompareMatch
+#define OVF2addr	0x0014	//Timer/Counter2Overflow
+#define ICP1addr	0x0016	//Timer/Counter1CaptureEvent
+#define OC1Aaddr	0x0018	//Timer/Counter1CompareMatchA
+#define OC1Baddr	0x001a	//Timer/CounterCompareMatchB
+#define OVF1addr	0x001c	//Timer/Counter1Overflow
+#define OC0addr		0x001e	//Timer/Counter0CompareMatch
+#define OVF0addr	0x0020	//Timer/Counter0Overflow
+#define SPIaddr		0x0022	//SPISerialTransferComplete
+#define URXC0addr	0x0024	//USART0,RxComplete
+#define UDRE0addr	0x0026	//USART0DataRegisterEmpty
+#define UTXC0addr	0x0028	//USART0,TxComplete
+#define ADCCaddr	0x002a	//ADCConversionComplete
+#define ERDYaddr	0x002c	//EEPROMReady
+#define ACIaddr		0x002e	// AnalogComparator
+#define OC1Caddr	0x0030	//Timer/Counter1CompareMatchC
+#define ICP3addr	0x0032	//Timer/Counter3CaptureEvent
+#define OC3Aaddr	0x0034	//Timer/Counter3CompareMatchA
+#define OC3Baddr	0x0036	//Timer/Counter3CompareMatchB
+#define OC3Caddr	0x0038	//Timer/Counter3CompareMatchC
+#define OVF3addr	0x003a	//Timer/Counter3Overflow
+#define URXC1addr	0x003c	//USART1,RxComplete
+#define UDRE1addr	0x003e	//USART1,DataRegisterEmpty
+#define UTXC1addr	0x0040	//USART1,TxComplete
+#define TWIaddr		0x0042	//2-wireSerialInterface
+#define SPMRaddr	0x0044	//StoreProgramMemoryRead
+
+#define INT_VECTORS_SIZE	70	//sizeinwords
+
+#endif	// _M128DEF_INC_
